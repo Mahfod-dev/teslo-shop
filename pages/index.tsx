@@ -1,12 +1,8 @@
-import {
-	Card,
-	CardActionArea,
-	CardMedia,
-	Grid,
-	Typography,
-} from '@mui/material';
+import { Typography } from '@mui/material';
 import { ShopLayout } from '../components/layouts';
 import { initialData } from '../database/products';
+import { ProductList } from '../components/products';
+import { IProduct } from '../interfaces';
 
 export default function Home() {
 	return (
@@ -21,21 +17,7 @@ export default function Home() {
 					Tous les produits
 				</Typography>
 
-				<Grid container spacing={4}>
-					{initialData.products.map((product) => (
-						<Grid item xs={6} sm={4} key={product.slug}>
-							<Card>
-								<CardActionArea>
-									<CardMedia
-										component='img'
-										image={`products/${product.images[0]}`}
-										alt={product.title}
-									/>
-								</CardActionArea>
-							</Card>
-						</Grid>
-					))}
-				</Grid>
+				<ProductList products={initialData.products as IProduct[]} />
 			</ShopLayout>
 		</>
 	);
