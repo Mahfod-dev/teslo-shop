@@ -5,6 +5,8 @@ import { ProductList } from '../components/products';
 import { IProduct } from '../interfaces';
 
 export default function Home() {
+
+	console.log(process.env.NEXT_PUBLIC_CLIENT_KEY);
 	return (
 		<>
 			<ShopLayout
